@@ -6,13 +6,10 @@ import {
 	a, article, aside, body, br, div, head, header, html, input, link, main, meta, nav, p, section, title
 } from '../src/html.ts'
 
+
+//
+
 const t = HTML.a("", "Test")
-
-console.log(typeof(HTML.a)); // Should show 'function'
-
-console.log(HTML.a); // Should show the function
-
-console.log("function name:", HTML.a.name); // Should display 'a'
 
 console.log("tag:", t); // The tag content
 
@@ -30,38 +27,4 @@ let page = html(
 	)
 );
 
-//console.log(page);
-
-console.log("\n");
-
-let start, end;
-
-start = performance.now();
-console.log(page.expand(4));
-end = performance.now();
-console.log(`Execution time indented variant: ${end - start} milliseconds\n`);
-
-
-start = performance.now();
 console.log(page.expand());
-end = performance.now();
-console.log(`Execution time optimized variant: ${end - start} milliseconds\n`);
-
-
-const acc_push = div(
-	{ "hx-get": "/account", "hx-push-url": true },
-	"Go to My Account"
-);
-
-console.log("acc_pushed:", acc_push);
-console.log(page.expand(acc_push, 4));
-
-
-let hello = p("Hallo,", br, "kaputte Welt!");
-console.log(hello.expand(4));
-
-let x = a("/kontakt", "Kontakt");
-console.log(x.expand(4));
-
-let m = main();
-console.log(m.expand(4));
